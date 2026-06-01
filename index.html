@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="gl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="LUMEN-V, sistema de orientación académica y profesional desarrollado por Tribeca Academia." />
+  <title>LUMEN-V v1.6.3 | Sistema de orientación</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="font-standard">
+  <header class="hero">
+    <div class="toolbar">
+      <label class="toolbar__control"><span data-i18n="language">Idioma</span>
+        <select id="language-select" aria-label="Idioma">
+          <option value="gl" selected>Galego</option>
+          <option value="es">Castellano</option>
+          <option value="pt">Português</option>
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="pl">Polski</option>
+          <option value="de">Deutsch</option>
+        </select>
+      </label>
+
+      <div class="accessibility">
+        <button class="toolbar__control toolbar__button" id="accessibility-toggle" type="button" aria-expanded="false" aria-controls="accessibility-panel">
+          <span class="toolbar__icon" aria-hidden="true">♿</span>
+          <span data-i18n="accessibility">Accesibilidade</span>
+        </button>
+        <div class="accessibility__panel" id="accessibility-panel" hidden>
+          <label class="accessibility__field">
+            <span data-i18n="zoom">Zoom</span>
+            <select id="zoom-select" aria-label="Zoom da interface">
+              <option value="small" data-i18n="zoomSmall">Máis pequeno</option>
+              <option value="normal" data-i18n="zoomNormal">Normal</option>
+              <option value="large" data-i18n="zoomLarge">Máis grande</option>
+            </select>
+          </label>
+          <label class="accessibility__field">
+            <span data-i18n="font">Fonte</span>
+            <select id="font-select" aria-label="Fonte de lectura">
+              <option value="standard" data-i18n="standardFont">Estándar</option>
+              <option value="comic">Comic Sans</option>
+              <option value="dyslexic">OpenDyslexic</option>
+            </select>
+          </label>
+          <label class="accessibility__check">
+            <input id="literal-help" type="checkbox" />
+            <span data-i18n="literalHelp">Asistencia ao pensamento literal</span>
+          </label>
+          <p class="accessibility__note" data-i18n="literalHelpNote">Ao pasar o cursor por algunhas palabras ou expresións aparecerá unha aclaración breve do seu significado.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__inner">
+      <div class="hero__main">
+        <img class="hero__logo" src="assets/lumen-v-symbol.png" alt="LUMEN-V" />
+        <p class="eyebrow" data-i18n="systemName">Sistema de orientación académica e profesional</p>
+        <h1>LUMEN-V</h1>
+        <p class="subtitle" data-i18n="subtitle">Explorador de intereses, habilidades, valores e oportunidades vocacionais</p>
+        <p class="hero__text" data-i18n="heroText">Sistema de exploración vocacional pensado para acompañar decisións académicas e profesionais, facilitar a reflexión sobre itinerarios formativos e apoiar procesos de reorientación profesional desde unha lectura prudente, estruturada e fundamentada.</p>
+      </div>
+
+      <div class="hero__side">
+        <section class="consent-card" aria-label="Aviso de uso orientativo">
+          <p class="section-kicker" data-i18n="beforeStart">Antes de comezar</p>
+          <h2 data-i18n="orientationUse">Uso orientativo, non diagnóstico</h2>
+          <p data-i18n="consentText">LUMEN-V non substitúe unha entrevista de orientación nin determina de forma pechada o futuro académico ou profesional dunha persoa. Os resultados deben lerse como unha base razoada para conversar, contrastar información e explorar opcións.</p>
+          <label class="checkbox-line"><input id="consent" type="checkbox" /> <span data-i18n="consentCheck">Lin e comprendín que os resultados son orientativos.</span></label>
+        </section>
+
+        <div class="hero__actions">
+          <button class="button button--primary" id="start" type="button" disabled data-i18n="start">Comezar cuestionario</button>
+          <button class="button button--ghost" id="science-toggle" type="button" data-i18n="scienceButton">Ver base científica e licenza</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="science" class="panel methodology" hidden>
+      <p class="section-kicker" data-i18n="scienceKicker">Base científica, autoría e permisos</p>
+      <h2 data-i18n="scienceTitle">En que se basea LUMEN-V</h2>
+      <p data-i18n="scienceText">LUMEN-V é desenvolvido por Tribeca Academia. Utiliza ítems orixinais e non reproduce ítems, baremos nin informes de probas comerciais ou propietarias. A ferramenta toma como referencia o modelo RIASEC de Holland, a teoría sociocognitiva da carreira e fontes documentais abertas ou oficiais.</p>
+      <div class="method-grid">
+        <article><h3 data-i18n="sci1Title">Intereses</h3><p data-i18n="sci1Text">O núcleo organízase co modelo RIASEC: Realista, Investigador, Artístico, Social, Emprendedor e Convencional.</p></article>
+        <article><h3 data-i18n="sci2Title">Variables complementarias</h3><p data-i18n="sci2Text">Integra habilidades autopercibidas, valores, expectativas, estilo de traballo e contexto académico.</p></article>
+        <article><h3 data-i18n="sci3Title">Cálculo</h3><p data-i18n="sci3Text">O perfil global pondera intereses, habilidades e valores, e compara o resultado cunha matriz de itinerarios mediante similitude coseno e distancia euclídea normalizada.</p></article>
+        <article><h3 data-i18n="sci4Title">Licenza</h3><p data-i18n="sci4Text">A obra orixinal LUMEN-V distribúese baixo CC BY-NC-ND 4.0. As fontes externas citadas conservan as súas propias condicións.</p></article>
+      </div>
+    </section>
+
+    <section id="app" class="panel app" hidden>
+      <div class="progress">
+        <strong id="progress-label">0 %</strong>
+        <div class="progress__track"><span id="progress-bar"></span></div>
+        <small id="progress-detail"></small>
+      </div>
+
+      <section id="context-screen">
+        <p class="section-kicker" data-i18n="contextKicker">Datos de contexto</p>
+        <h2 data-i18n="contextTitle">Información inicial</h2>
+        <p class="lead" data-i18n="contextLead">Estes datos axudan a interpretar o informe con prudencia. Non se utilizan como baremo normativo.</p>
+        <div class="grid two">
+          <label><span data-i18n="studentName">Nome ou iniciais</span><input id="studentName" type="text" maxlength="80" /></label>
+          <label><span data-i18n="stage">Curso ou etapa</span><input id="stage" type="text" maxlength="120" /></label>
+          <label><span data-i18n="likedSubjects">Materias que máis interesan</span><input id="likedSubjects" type="text" maxlength="220" /></label>
+          <label><span data-i18n="difficultSubjects">Materias que máis custan ou se evitan</span><input id="difficultSubjects" type="text" maxlength="220" /></label>
+          <label><span data-i18n="preferredRoute">Itinerario que contempla inicialmente</span><input id="preferredRoute" type="text" maxlength="160" /></label>
+          <label><span data-i18n="studyHorizon">Horizonte de estudo aceptable</span><input id="studyHorizon" type="text" maxlength="160" /></label>
+        </div>
+        <label><span data-i18n="barriers">Dúbidas, barreiras ou condicións relevantes</span><textarea id="barriers" rows="4" maxlength="600"></textarea></label>
+        <div class="actions end">
+          <button id="context-next" class="button button--primary" type="button" data-i18n="continue">Continuar</button>
+        </div>
+      </section>
+
+      <section id="question-screen" hidden>
+        <p class="section-kicker" id="question-section">Cuestionario</p>
+        <div class="question-card">
+          <div class="question-card__top">
+            <span class="question-number" id="question-number"></span>
+            <span class="question-progress" id="question-progress"></span>
+          </div>
+          <h2 id="question-text"></h2>
+          <p class="scale-intro" data-i18n="scaleIntro">Escolle a opción que mellor encaixe contigo neste momento.</p>
+          <div id="scale-buttons" class="scale-buttons"></div>
+        </div>
+        <div class="actions between">
+          <button id="prev-question" class="button button--ghost" type="button" data-i18n="previous">Anterior</button>
+          <button id="next-question" class="button button--primary" type="button" data-i18n="next">Seguinte</button>
+        </div>
+      </section>
+
+      <section id="result-screen" hidden>
+        <div id="report" class="report"></div>
+        <div class="report-actions">
+          <button id="print-report" class="button button--primary" type="button" data-i18n="savePdf">Gardar informe en PDF</button>
+          <button id="reset" class="button button--danger" type="button" data-i18n="reset">Borrar respostas</button>
+        </div>
+      </section>
+    </section>
+  </main>
+
+    <footer class="footer">
+    <div class="footer__bar">
+      <div class="footer__brand">
+        <img src="assets/tribeca-shield.png" alt="Tribeca Academia" class="footer__shield" />
+        <div>
+          <p class="footer__brand-name">Tribeca Academia</p>
+          <p class="footer__tagline">Una marca de Tribeca Academia</p>
+          <p class="footer__address">Calle Rafael Juan, 33, 15130, Corcubión, A Coruña</p>
+        </div>
+      </div>
+
+      <p class="footer__description">Tribeca Academia es un centro de pedagogía y refuerzo educativo que adapta la enseñanza a cada persona, aprovecha sus oportunidades de mejora y ofrece clases desde Primaria hasta adultos.</p>
+
+      <nav class="footer__links" aria-label="Enlaces de pie de página">
+        <button type="button" class="footer__link" data-panel-target="footer-about">Detrás de Tribeca</button>
+        <button type="button" class="footer__link" data-panel-target="footer-legal">Aviso legal</button>
+        <button type="button" class="footer__link" data-panel-target="footer-support">Soporte</button>
+        <button type="button" class="footer__link" data-panel-target="footer-contact">Contacto</button>
+      </nav>
+    </div>
+
+    <div class="footer-panels">
+      <section id="footer-about" class="footer-panel" hidden>
+        <div class="footer-panel__header">
+          <h3>Detrás de Tribeca</h3>
+          <button type="button" class="footer-panel__close" data-close-panel>&times;</button>
+        </div>
+        <div class="about-tribeca">
+          <img src="assets/patricia-trillo-bn.png" alt="Retrato de Patricia Trillo" class="about-tribeca__photo" />
+          <div class="about-tribeca__content">
+            <p class="section-kicker">Detrás de Tribeca</p>
+            <h3>Patricia Trillo, una mirada pedagógica, creativa e innovadora</h3>
+            <p>Tribeca Academia nace del impulso profesional de Patricia Trillo, pedagoga y fundadora del proyecto. Con quince años de experiencia en enseñanza, refuerzo educativo y acompañamiento académico, Patricia ha trabajado con alumnado de distintas edades, etapas y perfiles, siempre desde una premisa clara: cada persona aprende de una forma singular y necesita una respuesta educativa ajustada, humana y rigurosa.</p>
+            <p>El proyecto comenzó cuando, con veintiún años, fundó Tribeca Academia para ofrecer apoyo educativo a alumnado de Primaria y ESO. Desde entonces, la academia ha crecido hasta convertirse en un espacio de aprendizaje cercano, exigente y creativo, orientado a acompañar trayectorias académicas diversas y a transformar las dificultades en oportunidades reales de mejora.</p>
+            <p>Su forma de entender la educación combina experiencia, curiosidad e innovación pedagógica. Esa búsqueda constante de mejora sostiene la identidad del proyecto: enseñar con rigor, acompañar con sensibilidad y crear soluciones educativas que tengan sentido para el alumnado de hoy.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="footer-legal" class="footer-panel" hidden>
+        <div class="footer-panel__header">
+          <h3>Aviso legal</h3>
+          <button type="button" class="footer-panel__close" data-close-panel>&times;</button>
+        </div>
+        <p>LUMEN-V es un sistema de orientación académica y profesional de carácter orientativo. No sustituye una evaluación individual ni una entrevista profesional de orientación.</p>
+        <p>La herramienta procesa la información en el navegador del usuario y no incorpora baremos normativos en esta versión. La obra original LUMEN-V se distribuye bajo licencia CC BY-NC-ND 4.0.</p>
+      </section>
+
+      <section id="footer-support" class="footer-panel" hidden>
+        <div class="footer-panel__header">
+          <h3>Soporte</h3>
+          <button type="button" class="footer-panel__close" data-close-panel>&times;</button>
+        </div>
+        <p>Si necesitas ayuda con el funcionamiento de LUMEN-V o deseas resolver una incidencia, puedes utilizar los canales habituales de Tribeca Academia. Indica, si es posible, el dispositivo, el navegador y el problema detectado.</p>
+      </section>
+
+      <section id="footer-contact" class="footer-panel" hidden>
+        <div class="footer-panel__header">
+          <h3>Contacto</h3>
+          <button type="button" class="footer-panel__close" data-close-panel>&times;</button>
+        </div>
+        <p><strong>Tribeca Academia</strong></p>
+        <p>Calle Rafael Juan, 33, 15130, Corcubión, A Coruña</p>
+        <p>Centro de pedagogía y refuerzo educativo para alumnado desde Primaria hasta adultos.</p>
+      </section>
+    </div>
+
+    <p class="footer__meta"><strong>LUMEN-V</strong> v1.6.2 · Sistema de orientación académica y profesional · CC BY-NC-ND 4.0</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

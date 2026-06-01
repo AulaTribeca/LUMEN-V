@@ -1,0 +1,24 @@
+LUMEN-V v1.4 - Avisos de uso, permisos y atribución
+
+Desarrollador: Tribeca Academia.
+
+1. Código, diseño y contenidos originales de esta implementación
+Los ítems del cuestionario, la matriz de itinerarios, la redacción del informe, la interfaz y la documentación propia son originales y se han elaborado específicamente para LUMEN-V. Salvo indicación contraria, la obra original LUMEN-V se distribuye bajo la licencia Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0). Esta licencia permite compartir la obra con atribución a Tribeca Academia, sin uso comercial y sin crear obras derivadas. No se han copiado ítems de EXPLORA-R, SDS, Strong Interest Inventory ni O*NET Interest Profiler. El uso de los modelos teóricos y categorías generales no implica reproducción de instrumentos protegidos.
+
+2. O*NET
+O*NET Database: content licensed under Creative Commons Attribution 4.0 International License, except as noted by O*NET. O*NET is sponsored by the U.S. Department of Labor, Employment and Training Administration and developed by the National Center for O*NET Development. LUMEN-V does not reproduce O*NET Interest Profiler items. It uses O*NET as a theoretical and documentary reference.
+
+Recommended attribution when using O*NET data in future expansions:
+This page includes information from the O*NET Database by the U.S. Department of Labor, Employment and Training Administration (USDOL/ETA). Used under the CC BY 4.0 license. O*NET® is a trademark of USDOL/ETA. Tribeca Academia has modified all or some of this information. USDOL/ETA has not approved, endorsed, or tested these modifications.
+
+3. IPIP
+The International Personality Item Pool states that its items and scales are public domain and may be copied, edited, translated, or used for any purpose without permission or fee. LUMEN-V includes only a small, original non-diagnostic work-style block inspired by public-domain personality measurement logic. It is not a clinical or validated personality test.
+
+4. ESCO
+ESCO is a European classification of skills, competences, qualifications and occupations. This implementation does not embed ESCO datasets. Future expansions may connect to ESCO downloads or APIs, observing the applicable licence and attribution notices.
+
+5. Spanish official educational sources
+TodoFP, INCUAL and QEDU are used as official reference sources for Spanish educational and occupational guidance. The current implementation includes an orientative matrix and does not claim to be a complete or official catalogue.
+
+6. Proprietary tests
+EXPLORA-R, SDS, Strong Interest Inventory and other professional instruments are proprietary or commercial tools subject to their own conditions. LUMEN-V does not copy their items, scoring keys, reports, norms or manuals.
