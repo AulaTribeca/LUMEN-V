@@ -19,3 +19,8 @@ Nota lingüística: la versión base está preparada para uso principal en galle
 
 - Reducción del tamaño visual general y reorganización de la portada.
 - Pie de página adaptado a la estructura visual de Tribeca Aula.
+
+
+## Ajuste v1.6.4
+
+- Añadido favicon de LUMEN-V para que el símbolo aparezca en la pestaña y la barra del navegador.
